@@ -9,13 +9,13 @@
     Title="CarCheckList">
 
     <TabBar>
-        <Tab Title="Checklist">
+        <Tab Title="Checklist" Icon="home.png">
             <ShellContent ContentTemplate="{DataTemplate view:ChecklistPage}"/>
         </Tab>
-        <Tab Title="History">
+        <Tab Title="History" Icon="history.png">
             <ShellContent ContentTemplate="{DataTemplate view:HistoryPage}"/>
         </Tab>
-        <Tab Title="Car Info">
+        <Tab Title="Car Info" Icon="car.png">
             <ShellContent ContentTemplate="{DataTemplate view:CarInfoPage}"/>
         </Tab>
     </TabBar>

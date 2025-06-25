@@ -16,6 +16,7 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+				fonts.AddFont("fa-regular-400.ttf", "FARegular");
 			});
 
 #if DEBUG
@@ -29,7 +30,7 @@ public static class MauiProgram
 
 		builder.Services.AddSingleton<HistoryViewModel>();
 		builder.Services.AddSingleton<HistoryPage>();
-		
+
 		builder.Services.AddSingleton<CarInfoViewModel>();
 		builder.Services.AddSingleton<CarInfoPage>();
 
