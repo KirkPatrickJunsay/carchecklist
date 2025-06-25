@@ -1,0 +1,24 @@
+using System;
+using CarCheckList.Services.Navigation;
+
+namespace CarCheckList.ViewModels.Base;
+
+public class ViewModelBase : IViewModelBase
+{
+    public INavigationService NavigationService { get;}
+
+    public virtual void ApplyQueryAttributes(IDictionary<string, object> query)
+    {
+
+    }
+
+    public virtual Task InitializeAsync(object data)
+    {
+        return Task.CompletedTask;
+    }
+
+    public virtual Task OnAppearing()
+    {
+        return Task.CompletedTask;
+    }
+}
