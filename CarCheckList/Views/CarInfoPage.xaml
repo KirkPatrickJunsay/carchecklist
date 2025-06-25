@@ -5,7 +5,7 @@
              x:Class="CarCheckList.Views.CarInfoPage">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Car Information"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>

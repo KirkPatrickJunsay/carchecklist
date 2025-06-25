@@ -1,9 +1,10 @@
 using System;
 using CarCheckList.Services.Navigation;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace CarCheckList.ViewModels.Base;
 
-public class ViewModelBase : IViewModelBase
+public class ViewModelBase : ObservableObject, IViewModelBase
 {
     public INavigationService NavigationService { get;}
 
