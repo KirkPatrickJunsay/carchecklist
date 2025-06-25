@@ -20,5 +20,5 @@ jobs:
 
       - name: 🛠️ Restore and Build Core Project
         run: |
-          dotnet restore ./MyApp.Core/MyApp.Core.csproj
-          dotnet build ./MyApp.Core/MyApp.Core.csproj -c Release --no-restore
+          dotnet restore ./CarCheckList/CarCheckList.csproj
+          dotnet build ./CarCheckList/CarCheckList.csproj -c Release --no-restore
