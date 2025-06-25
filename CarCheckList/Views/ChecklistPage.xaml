@@ -23,6 +23,7 @@
                                 <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Medium"/>
                                 <Label Text="{Binding Description}" FontSize="Small"/>
                             </VerticalStackLayout>
+                            <Label Grid.Column="2" Text="{Binding Status}" FontSize="30" FontFamily="FARegular" VerticalOptions="Center" HorizontalOptions="Center"/>
                         </Grid>
                     </Frame>
                 </DataTemplate>
