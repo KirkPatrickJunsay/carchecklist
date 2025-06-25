@@ -21,6 +21,9 @@ jobs:
       - name: 📦 Install MAUI Android Workload
         run: dotnet workload install maui-android
 
+      - name: 🧰 Restore Workloads
+        run: dotnet workload restore
+
       - name: 🛠️ Restore and Build MAUI Project
         run: |
           dotnet restore ./CarCheckList/CarCheckList.csproj
