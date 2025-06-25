@@ -1,0 +1,31 @@
+name: CI Build
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧾 Checkout Code
+        uses: actions/checkout@v3
+
+      - name: 🔧 Setup .NET 8 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: 📦 Install MAUI Workload
+        run: |
+          dotnet workload install maui-android
+
+      - name: 🛠️ Restore NuGet packages
+        run: |
+          dotnet restore ./CarCheckList.csproj
+
+      - name: 🏗️ Build MAUI Android App
+        run: |
+          dotnet build ./CarCheckList.csproj -f net8.0-android -c Release --no-restore
