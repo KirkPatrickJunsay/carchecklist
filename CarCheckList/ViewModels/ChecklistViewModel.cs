@@ -3,7 +3,10 @@ using System.Collections.ObjectModel;
 using CarCheckList.Helpers;
 using CarCheckList.Models;
 using CarCheckList.ViewModels.Base;
+using CarCheckList.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Mopups.Services;
 
 namespace CarCheckList.ViewModels;
 
@@ -12,15 +15,27 @@ public partial class ChecklistViewModel:ViewModelBase
     [ObservableProperty]
     ObservableCollection<ChecklistItem> checklistItems;
 
+    private bool _isInitialized;
     public override Task OnAppearing()
     {
-        GenerateChecklistItems();
+        if (!_isInitialized)
+        {
+            GenerateChecklistItems();
+            _isInitialized = true;
+        }
+        
         return Task.CompletedTask;
     }
     
+    [RelayCommand]
+    private async Task ShowChecklistItemPopup(ChecklistItem item)
+    {
+        var vm = new ChecklistPopupViewModel(item);
+        await MopupService.Instance.PushAsync(new ChecklistPopup(vm));
+    }
     private void GenerateChecklistItems()
     {
-        ChecklistItems= new ObservableCollection<ChecklistItem>
+        ChecklistItems = new ObservableCollection<ChecklistItem>
         {
             new ChecklistItem { Title = "Battery", Icon = FontAwesome.BatteryFull, Description = "Check the battery charge and terminal connections." },
             new ChecklistItem { Title = "Lights", Icon = FontAwesome.Lightbulb, Description = "Make sure headlights, brake lights, and signals work." },

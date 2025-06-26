@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <base:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CarCheckList.ViewModels"
              xmlns:helpers="clr-namespace:CarCheckList.Helpers;assembly=CarCheckList"
              xmlns:base="clr-namespace:CarCheckList.ViewModels.Base"
              x:Class="CarCheckList.Views.ChecklistPage">
     <Grid>
-        <CollectionView ItemsSource="{Binding ChecklistItems}" Margin="15">
+        <CollectionView ItemsSource="{Binding ChecklistItems}" Margin="15" SelectionMode="Single">
 			<CollectionView.ItemsLayout>
 				<GridItemsLayout Orientation="Vertical" VerticalItemSpacing="8"/>
 			</CollectionView.ItemsLayout>
@@ -25,6 +26,11 @@
                             </VerticalStackLayout>
                             <Label Grid.Column="2" Text="{Binding Status}" FontSize="30" FontFamily="FARegular" VerticalOptions="Center" HorizontalOptions="Center"/>
                         </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ChecklistViewModel}}, Path=ShowChecklistItemPopupCommand}"
+                            CommandParameter="{Binding .}" />
+                    </Frame.GestureRecognizers>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

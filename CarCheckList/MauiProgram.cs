@@ -2,6 +2,7 @@
 using CarCheckList.ViewModels;
 using CarCheckList.Views;
 using Microsoft.Extensions.Logging;
+using Mopups.Hosting;
 
 namespace CarCheckList;
 
@@ -12,6 +13,7 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+			.ConfigureMopups() 
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -33,6 +35,9 @@ public static class MauiProgram
 
 		builder.Services.AddSingleton<CarInfoViewModel>();
 		builder.Services.AddSingleton<CarInfoPage>();
+
+		builder.Services.AddSingleton<ChecklistPopupViewModel>();
+		builder.Services.AddSingleton<ChecklistPopup>();
 
 		return builder.Build();
 	}

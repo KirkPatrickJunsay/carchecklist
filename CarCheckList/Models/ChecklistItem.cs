@@ -1,14 +1,22 @@
 using System;
 using CarCheckList.Helpers;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace CarCheckList.Models;
 
-public class ChecklistItem
+public partial class ChecklistItem: ObservableObject
 {
-    public string Title { get; set; }
-    public string Icon { get; set; }
-    public string Description { get; set; }
-    public bool IsChecked { get; set; } = false;
+    [ObservableProperty]
+    string title;
+
+    [ObservableProperty]
+    string icon;
+
+    [ObservableProperty]
+    string description;
+
+    [ObservableProperty]
+    bool isChecked = false;
 
     public string Status
     {

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mopup:PopupPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mopup="clr-namespace:Mopups.Pages;assembly=Mopups"
+    x:Class="CarCheckList.Views.ChecklistPopup"
+    BackgroundColor="#80000000">
+
+    <Frame Padding="20" CornerRadius="20"
+           BackgroundColor="White"
+           VerticalOptions="Center"
+           HorizontalOptions="Center"
+           WidthRequest="320">
+        <VerticalStackLayout Spacing="20">
+            <!-- <lottie:AnimationView
+                Animation="{Binding AnimationFile}"
+                AutoPlay="True"
+                Loop="True"
+                HeightRequest="160" /> -->
+
+            <Label Text="{Binding Title}"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+            <Label Text="{Binding Description}"
+                   FontSize="16"
+                   TextColor="Gray"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center" />
+
+            <HorizontalStackLayout Spacing="20"
+                                   HorizontalOptions="Center">
+                <Button Text="Pass"
+                        Command="{Binding PassCommand}"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        WidthRequest="100" />
+                <Button Text="Fail"
+                        Command="{Binding FailCommand}"
+                        BackgroundColor="Red"
+                        TextColor="White"
+                        WidthRequest="100" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Frame>
+</mopup:PopupPage>
